@@ -26,4 +26,4 @@ Skills:
 Power BI | Excel | Data Visualization | Healthcare Analytics | SQL (aprendizagem)
 
 Contacto:
-LinkedIn: [linkedin.com/in/joao-soares-843a05240/] | Email: [soares.jcr@gmail.com]
+LinkedIn: [(https://www.linkedin.com/in/joao-soares-843a05240/)] | Email: [soares.jcr@gmail.com]
