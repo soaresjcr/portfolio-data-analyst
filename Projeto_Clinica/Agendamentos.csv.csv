@@ -1,0 +1,16 @@
+Agendamento_ID,Patient_ID,Data,Hora,Tipo_Exame,Status
+A001,P001,2026-02-01,09:00,RX Torax,Concluido
+A002,P002,2026-02-01,10:30,TC Abdomen,Concluido
+A003,P001,2026-02-02,14:00,RX Torax,Concluido
+A004,P003,2026-02-03,11:00,Mamografia,Aguarda
+A005,P004,2026-02-03,16:30,TC Cranio,Concluido
+A006,P005,2026-02-04,09:30,RM Joelho,Concluido
+A007,P002,2026-02-04,15:00,TC Torax,Concluido
+A008,P006,2026-02-05,10:00,USG Abdomen,Aguarda
+A009,P007,2026-02-05,13:30,RX Punho,Concluido
+A010,P008,2026-02-06,11:30,Mamografia,Concluido
+A011,P009,2026-02-06,16:00,RX Torax,Concluido
+A012,P010,2026-02-07,09:00,TC Coluna,Aguarda
+A013,P011,2026-02-07,14:30,RM Ombro,Concluido
+A014,P012,2026-02-08,10:30,USG Tiroide,Concluido
+A015,P001,2026-02-08,15:45,TC Abdomen,Concluido
