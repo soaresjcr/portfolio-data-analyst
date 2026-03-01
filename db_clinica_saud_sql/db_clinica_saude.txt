@@ -1,0 +1,62 @@
+USE db_clinica_saude;
+
+-- 1. Tabela de Pacientes
+CREATE TABLE pacientes (
+    paciente_id INT AUTO_INCREMENT PRIMARY KEY, -- auto_inc para numerar sequencialmente
+    nome VARCHAR(100) NOT NULL, -- até 100 caracteres, obrig preencher
+    data_nascimento DATE,
+    nif CHAR(9) UNIQUE, -- NIF tem sempre 9 dígitos, nao pode ser repetido
+    telemovel VARCHAR(15)
+    );
+
+-- 2. Criar Tabela de Médicos
+CREATE TABLE medicos (
+    medico_id INT AUTO_INCREMENT PRIMARY KEY, -- auto_inc para numerar sequencialmente
+    nome VARCHAR(100) NOT NULL, -- até 100 caracteres, obrig preencher
+    especialidade VARCHAR(50),
+    cedula_profissional VARCHAR(20) UNIQUE -- CD até 15 dígitos, nao pode ser repetido
+);
+
+-- 3. Criar Tabela de Consultas 
+CREATE TABLE consultas (
+    consulta_id INT AUTO_INCREMENT PRIMARY KEY, -- id cons, auto-inc para num sequencial
+    paciente_id INT,-- id paciente, igual ao id tabela pacientes
+    medico_id INT, -- id medico, igual id tabela medicos
+    data_consulta DATETIME,
+    diagnostico TEXT,
+    valor_consulta DECIMAL(10, 2), -- dez digitos, dos quais dois destinados a casas decimais
+    -- linhas abaixo criam o Relacionamentos
+    FOREIGN KEY (paciente_id) REFERENCES pacientes(paciente_id),
+    FOREIGN KEY (medico_id) REFERENCES medicos(medico_id)
+);
+
+
+-- 4. Inserir dados nas Tabelas 
+INSERT INTO pacientes (nome, data_nascimento, nif, telemovel) VALUES 
+('Carlos Alberto', '1975-03-12', '210344556', '933445566'),
+('Beatriz Gomes', '1998-07-25', '255667788', '922112233'),
+('Mariana Costa', '1950-12-01', '100200300', '919191919'),
+('Ricardo Pereira', '1988-01-15', '222333444', '966554433'),
+('Sofia Henriques', '2005-09-30', '300400500', '933221100'),
+('Fernando Mendes', '1962-06-18', '155166177', '910001122');
+
+INSERT INTO medicos (nome, especialidade, cedula_profissional) VALUES 
+('Dr. Paulo Rocha', 'Pediatria', 'CP11122'),
+('Dra. Helena Vaz', 'Dermatologia', 'CP33344'),
+('Dr. André Santos', 'Ortopedia', 'CP55566'),
+('Dra. Carla Antunes', 'Ginecologia', 'CP77788');
+
+INSERT INTO consultas (paciente_id, medico_id, data_consulta, diagnostico, valor_consulta) VALUES 
+(3, 3, '2023-11-01 09:30:00', 'Dores de crescimento, suplementação receitada.', 50.00),
+(4, 4, '2023-11-01 11:00:00', 'Eczema atópico, aplicação de creme corticoide.', 75.00),
+(2, 1, '2023-11-02 15:00:00', 'Arritmia ligeira, solicitado ECG.', 85.00),
+(6, 4, '2023-11-02 16:30:00', 'Entorse no tornozelo direito, imobilização.', 55.00),
+(1, 2, '2023-11-03 09:00:00', 'Renovação de receita e medição de tensão.', 40.00),
+(3, 3, '2023-11-03 14:00:00', 'Consulta de rotina anual.', 90.00),
+(1, 2, '2023-11-04 10:30:00', 'Infeção respiratória superior.', 45.00),
+(2, 4, '2023-11-04 12:00:00', 'TC de tratamento de pneumonia, sem alterações.', 65.00),
+(3, 1, '2023-11-05 17:00:00', 'Acompanhamento pós-exames.', 50.00);
+
+
+
+
